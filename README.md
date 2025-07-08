@@ -49,7 +49,7 @@ Segui questi passaggi per clonare il repository e avviare il progetto sul tuo co
 1.  **Clona il repository:**
 
     ```bash
-    git clone [https://github.com/sadsotti/owly-book-search.git](https://github.com/sadsotti/owly-book-search.git)
+    git clone https://github.com/sadsotti/owly-book-search.git
 
 2.  **Naviga nella directory del progetto:**
 
