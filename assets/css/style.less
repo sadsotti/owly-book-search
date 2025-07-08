@@ -1,0 +1,593 @@
+@color-primary: #26293c;
+@color-primary-dark: #1a1c29;
+@color-text-dark: #2C3E50;
+@color-text-medium: #34495E;
+@color-text-light: #7F8C8D;
+@color-background-light: #F8F9FA;
+@color-background-card: #FFFFFF;
+@color-background-footer: #EBF0F5;
+@color-border-light: #E0E0E0;
+@color-border-input: #DCE0E6;
+@color-focus-accent: #26293c;
+@color-shadow-base: rgba(0, 0, 0, 0.04);
+@color-shadow-medium: rgba(0, 0, 0, 0.08);
+@color-shadow-strong: rgba(0, 0, 0, 0.15);
+@color-shadow-modal: rgba(0, 0, 0, 0.4);
+@color-close-button: #95A5A6;
+
+@font-family-base: 'Inter', sans-serif;
+@font-size-base: 1rem;
+@line-height-base: 1.6;
+
+@spacing-xs: 0.5rem;
+@spacing-sm: 0.75rem;
+@spacing-md: 1rem;
+@spacing-lg: 1.5rem;
+@spacing-xl: 2rem;
+@spacing-2xl: 3rem;
+@spacing-3xl: 4rem;
+
+.flex-center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-base() {
+    .flex-center();
+    color: @color-background-card;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.card-shadow(@level: 1) when (@level = 1) {
+    box-shadow: 0 4px 15px @color-shadow-base;
+}
+.card-shadow(@level: 2) when (@level = 2) {
+    box-shadow: 0 8px 25px @color-shadow-medium;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+
+body {
+    font-family: @font-family-base;
+    background-color: @color-background-light;
+    color: @color-text-dark;
+    line-height: @line-height-base;
+    margin: 0;
+    padding: 0;
+}
+
+.body-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-header {
+    background-color: @color-background-card;
+    box-shadow: 0 2px 10px @color-shadow-base;
+    border-bottom: 1px solid @color-border-light;
+    padding: @spacing-md @spacing-lg;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-logo-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-image {
+        height: 3.5rem;
+        width: 3.5rem;
+        border-radius: 50%;
+        margin-right: @spacing-md;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        font-size: 2.0rem;
+        font-weight: 700;
+        color: @color-text-dark;
+        letter-spacing: -0.03em;
+        font-family:'Style Script', cursive;
+    }
+
+    .header-subtitle {
+        font-size: 1.1rem;
+        color: @color-text-light;
+        letter-spacing: 0.02em;
+        display: none;
+        @media (min-width: 768px) {
+            display: block;
+        }
+    }
+}
+
+.main-content-container {
+    flex-grow: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: @spacing-2xl @spacing-md;
+}
+
+.section-intro {
+    text-align: center;
+    margin-bottom: @spacing-3xl;
+
+    .section-title {
+        font-size: 3.8rem;
+        font-weight: 700;
+        color: @color-text-dark;
+        margin-bottom: @spacing-sm;
+        letter-spacing: -0.04em;
+    }
+
+    .section-subtitle {
+        font-size: 1.3rem;
+        color: @color-text-light;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
+.search-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: @spacing-lg;
+    margin-bottom: @spacing-3xl;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+.google-input {
+    border: 1px solid @color-border-input;
+    border-radius: 30px;
+    padding: 16px 25px;
+    font-size: 18px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+    &:focus {
+        border-color: @color-focus-accent;
+        box-shadow: 0 4px 12px fade(@color-focus-accent, 35%);
+    }
+}
+
+.input-flex-grow {
+    flex-grow: 1;
+}
+
+.btn-primary {
+    .button-base();
+    background-color: @color-primary;
+    padding: 16px 32px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+        background-color: @color-primary-dark;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.btn-secondary {
+    .button-base();
+    color: @color-text-dark;
+    background-color: @color-background-card;
+    border: 1px solid @color-border-input;
+    padding: 16px 32px;
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        background-color: lighten(@color-background-card, 3%);
+        border-color: darken(@color-border-input, 10%);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+}
+
+#loadingSpinner {
+    border: 4px solid @color-border-light;
+    border-top: 4px solid @color-primary;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    display: none;
+    margin: 0 auto @spacing-2xl auto;
+}
+
+@keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#bookList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: @spacing-2xl;
+}
+
+.card {
+    background-color: @color-background-card;
+    border-radius: 18px;
+    .card-shadow(1);
+    padding: @spacing-xl;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+
+    &:hover {
+        transform: translateY(-8px);
+        .card-shadow(2);
+        border-color: @color-primary;
+    }
+
+    h3.book-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: @color-text-medium;
+        margin-bottom: @spacing-sm;
+        line-height: 1.3;
+    }
+
+    p.book-authors {
+        font-size: 1rem;
+        color: @color-text-light;
+        margin-top: @spacing-xs;
+    }
+}
+
+.no-books-found,
+.error-message {
+    text-align: center;
+    color: @color-text-light;
+    font-size: 1.1em;
+    margin-top: @spacing-xl;
+    padding: @spacing-md;
+    width: 100%;
+}
+
+#descriptionModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: @color-shadow-modal;
+    .flex-center();
+}
+
+.modal-content {
+    background-color: @color-background-card;
+    padding: @spacing-3xl;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    position: relative;
+    animation: modalFadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-50px) scale(0.9); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: @color-text-dark;
+    margin-bottom: @spacing-md;
+    line-height: 1.2;
+}
+
+.modal-authors {
+    font-size: 1.1rem;
+    color: @color-text-light;
+    margin-bottom: @spacing-lg;
+    font-style: italic;
+}
+
+.modal-description {
+    font-size: @font-size-base;
+    color: @color-text-medium;
+    line-height: 1.7;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: @spacing-sm;
+}
+
+.close-button {
+    color: @color-close-button;
+    position: absolute;
+    top: @spacing-lg;
+    right: @spacing-2xl;
+    font-size: 36px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    &:hover,
+    &:focus {
+        color: @color-text-dark;
+        transform: rotate(90deg);
+    }
+}
+
+.message-box-overlay {
+    display: flex;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: @color-shadow-modal;
+    .flex-center();
+}
+
+.message-box-content {
+    background-color: @color-background-card;
+    padding: @spacing-xl;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 25px @color-shadow-medium;
+    max-width: 400px;
+    animation: modalFadeIn 0.3s ease-out forwards;
+}
+
+.message-box-text {
+    font-size: 1.1em;
+    color: @color-text-dark;
+    margin-bottom: @spacing-lg;
+}
+
+.main-footer {
+    background-color: @color-background-footer;
+    color: @color-text-light;
+    padding: @spacing-lg @spacing-md;
+    font-size: 0.95rem;
+    border-top: 1px solid @color-border-input;
+    text-align: center;
+
+    .footer-text-margin {
+        margin-top: @spacing-xs;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-content-container {
+        padding: @spacing-xl @spacing-md;
+    }
+    .section-title {
+        font-size: 3rem;
+    }
+    .section-subtitle {
+        font-size: 1.15rem;
+    }
+    .google-input {
+        padding: 14px 20px;
+        font-size: 17px;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 14px 28px;
+        font-size: 17px;
+    }
+    .card {
+        padding: @spacing-lg;
+        h3 {
+            font-size: 1.4rem;
+        }
+    }
+    .modal-content {
+        padding: @spacing-2xl;
+    }
+    .modal-title {
+        font-size: 2rem;
+    }
+    .close-button {
+        font-size: 32px;
+        right: @spacing-lg;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: @spacing-sm @spacing-md;
+        .logo-image {
+            height: 3rem;
+            width: 3rem;
+            margin-right: @spacing-sm;
+        }
+        h1 {
+            font-size: 1.8rem;
+        }
+    }
+    .main-content-container {
+        padding: @spacing-lg @spacing-md;
+    }
+    .section-intro {
+        margin-bottom: @spacing-2xl;
+    }
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: @spacing-xs;
+    }
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+    .search-section {
+        flex-direction: column;
+        gap: @spacing-md;
+        margin-bottom: @spacing-2xl;
+    }
+    .google-input {
+        padding: 12px 16px;
+        font-size: 1rem;
+        max-width: 90%;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 12px 20px;
+        font-size: 1rem;
+        width: 90%;
+    }
+    .loading-spinner {
+        width: 35px;
+        height: 35px;
+        margin-bottom: @spacing-lg;
+    }
+    #bookList {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: @spacing-xl;
+    }
+    .card {
+        padding: @spacing-md;
+        min-height: 150px;
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: @spacing-xs;
+        }
+        p {
+            font-size: 0.85rem;
+        }
+    }
+    .modal-content {
+        padding: @spacing-xl;
+        border-radius: 12px;
+    }
+    .modal-title {
+        font-size: 1.6rem;
+        margin-bottom: @spacing-sm;
+    }
+    .modal-authors {
+        font-size: 0.9rem;
+        margin-bottom: @spacing-md;
+    }
+    .modal-description {
+        font-size: 0.85rem;
+        max-height: 180px;
+    }
+    .close-button {
+        font-size: 24px;
+        top: @spacing-sm;
+        right: @spacing-md;
+    }
+    .message-box-content {
+        padding: @spacing-lg;
+    }
+    .message-box-text {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: @spacing-xs @spacing-sm;
+        .logo-image {
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+    .main-content-container {
+        padding: @spacing-lg @spacing-xs;
+    }
+    .section-intro {
+        margin-bottom: @spacing-xl;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .section-subtitle {
+        font-size: 0.85rem;
+    }
+    .search-section {
+        gap: @spacing-sm;
+        margin-bottom: @spacing-xl;
+    }
+    .google-input, .btn-primary, .btn-secondary {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        width: 95%;
+    }
+    #bookList {
+        grid-template-columns: 1fr;
+        gap: @spacing-lg;
+    }
+    .card {
+        padding: @spacing-sm;
+        min-height: 130px;
+        h3 {
+            font-size: 1rem;
+        }
+        p {
+            font-size: 0.8rem;
+        }
+    }
+    .modal-content {
+        padding: @spacing-lg;
+    }
+    .modal-title {
+        font-size: 1.3rem;
+    }
+    .modal-authors {
+        font-size: 0.8rem;
+    }
+    .modal-description {
+        font-size: 0.8rem;
+        max-height: 150px;
+    }
+    .close-button {
+        font-size: 20px;
+        top: @spacing-xs;
+        right: @spacing-sm;
+    }
+    .message-box-content {
+        padding: @spacing-sm;
+    }
+    .message-box-text {
+        font-size: 0.9em;
+    }
+    .main-footer {
+        padding: @spacing-sm @spacing-xs;
+        font-size: 0.8rem;
+    }
+}

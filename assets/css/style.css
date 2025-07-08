@@ -1,0 +1,573 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Style Script';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/stylescript/v12/vm8xdRX3SV7Z0aPa88xzW5npeA.ttf) format('truetype');
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8F9FA;
+  color: #2C3E50;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+.body-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-header {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid #E0E0E0;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main-header .header-logo-container {
+  display: flex;
+  align-items: center;
+}
+.main-header .logo-image {
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.main-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2C3E50;
+  letter-spacing: -0.03em;
+  font-family: 'Style Script', cursive;
+}
+.main-header .header-subtitle {
+  font-size: 1.1rem;
+  color: #7F8C8D;
+  letter-spacing: 0.02em;
+  display: none;
+}
+@media (min-width: 768px) {
+  .main-header .header-subtitle {
+    display: block;
+  }
+}
+.main-content-container {
+  flex-grow: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+.section-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-intro .section-title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.04em;
+}
+.section-intro .section-subtitle {
+  font-size: 1.3rem;
+  color: #7F8C8D;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .search-section {
+    flex-direction: row;
+  }
+}
+.google-input {
+  border: 1px solid #DCE0E6;
+  border-radius: 30px;
+  padding: 16px 25px;
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.google-input:focus {
+  border-color: #26293c;
+  box-shadow: 0 4px 12px rgba(38, 41, 60, 0.35);
+}
+.input-flex-grow {
+  flex-grow: 1;
+}
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  background-color: #26293c;
+  padding: 16px 32px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.btn-primary:hover {
+  background-color: #1a1c29;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #2C3E50;
+  background-color: #FFFFFF;
+  border: 1px solid #DCE0E6;
+  padding: 16px 32px;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.btn-secondary:hover {
+  background-color: #ffffff;
+  border-color: #bec6d1;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+#loadingSpinner {
+  border: 4px solid #E0E0E0;
+  border-top: 4px solid #26293c;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+  display: none;
+  margin: 0 auto 3rem auto;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#bookList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+}
+.card {
+  background-color: #FFFFFF;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-color: #26293c;
+}
+.card h3.book-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #34495E;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+.card p.book-authors {
+  font-size: 1rem;
+  color: #7F8C8D;
+  margin-top: 0.5rem;
+}
+.no-books-found,
+.error-message {
+  text-align: center;
+  color: #7F8C8D;
+  font-size: 1.1em;
+  margin-top: 2rem;
+  padding: 1rem;
+  width: 100%;
+}
+#descriptionModal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background-color: #FFFFFF;
+  padding: 4rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  position: relative;
+  animation: modalFadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  transform: scale(0.9);
+  opacity: 0;
+}
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.modal-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.modal-authors {
+  font-size: 1.1rem;
+  color: #7F8C8D;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+.modal-description {
+  font-size: 1rem;
+  color: #34495E;
+  line-height: 1.7;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 0.75rem;
+}
+.close-button {
+  color: #95A5A6;
+  position: absolute;
+  top: 1.5rem;
+  right: 3rem;
+  font-size: 36px;
+  font-weight: normal;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.close-button:hover,
+.close-button:focus {
+  color: #2C3E50;
+  transform: rotate(90deg);
+}
+.message-box-overlay {
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.message-box-content {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+  animation: modalFadeIn 0.3s ease-out forwards;
+}
+.message-box-text {
+  font-size: 1.1em;
+  color: #2C3E50;
+  margin-bottom: 1.5rem;
+}
+.main-footer {
+  background-color: #EBF0F5;
+  color: #7F8C8D;
+  padding: 1.5rem 1rem;
+  font-size: 0.95rem;
+  border-top: 1px solid #DCE0E6;
+  text-align: center;
+}
+.main-footer .footer-text-margin {
+  margin-top: 0.5rem;
+}
+@media (max-width: 1024px) {
+  .main-content-container {
+    padding: 2rem 1rem;
+  }
+  .section-title {
+    font-size: 3rem;
+  }
+  .section-subtitle {
+    font-size: 1.15rem;
+  }
+  .google-input {
+    padding: 14px 20px;
+    font-size: 17px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    padding: 14px 28px;
+    font-size: 17px;
+  }
+  .card {
+    padding: 1.5rem;
+  }
+  .card h3 {
+    font-size: 1.4rem;
+  }
+  .modal-content {
+    padding: 3rem;
+  }
+  .modal-title {
+    font-size: 2rem;
+  }
+  .close-button {
+    font-size: 32px;
+    right: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .main-header {
+    padding: 0.75rem 1rem;
+  }
+  .main-header .logo-image {
+    height: 3rem;
+    width: 3rem;
+    margin-right: 0.75rem;
+  }
+  .main-header h1 {
+    font-size: 1.8rem;
+  }
+  .main-content-container {
+    padding: 1.5rem 1rem;
+  }
+  .section-intro {
+    margin-bottom: 3rem;
+  }
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+  .search-section {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .google-input {
+    padding: 12px 16px;
+    font-size: 1rem;
+    max-width: 90%;
+  }
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 20px;
+    font-size: 1rem;
+    width: 90%;
+  }
+  .loading-spinner {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 1.5rem;
+  }
+  #bookList {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+  .card {
+    padding: 1rem;
+    min-height: 150px;
+  }
+  .card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .card p {
+    font-size: 0.85rem;
+  }
+  .modal-content {
+    padding: 2rem;
+    border-radius: 12px;
+  }
+  .modal-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .modal-authors {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .modal-description {
+    font-size: 0.85rem;
+    max-height: 180px;
+  }
+  .close-button {
+    font-size: 24px;
+    top: 0.75rem;
+    right: 1rem;
+  }
+  .message-box-content {
+    padding: 1.5rem;
+  }
+  .message-box-text {
+    font-size: 1em;
+  }
+}
+@media (max-width: 480px) {
+  .main-header {
+    padding: 0.5rem 0.75rem;
+  }
+  .main-header .logo-image {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+  .main-header h1 {
+    font-size: 1.5rem;
+  }
+  .main-content-container {
+    padding: 1.5rem 0.5rem;
+  }
+  .section-intro {
+    margin-bottom: 2rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .section-subtitle {
+    font-size: 0.85rem;
+  }
+  .search-section {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .google-input,
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    width: 95%;
+  }
+  #bookList {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .card {
+    padding: 0.75rem;
+    min-height: 130px;
+  }
+  .card h3 {
+    font-size: 1rem;
+  }
+  .card p {
+    font-size: 0.8rem;
+  }
+  .modal-content {
+    padding: 1.5rem;
+  }
+  .modal-title {
+    font-size: 1.3rem;
+  }
+  .modal-authors {
+    font-size: 0.8rem;
+  }
+  .modal-description {
+    font-size: 0.8rem;
+    max-height: 150px;
+  }
+  .close-button {
+    font-size: 20px;
+    top: 0.5rem;
+    right: 0.75rem;
+  }
+  .message-box-content {
+    padding: 0.75rem;
+  }
+  .message-box-text {
+    font-size: 0.9em;
+  }
+  .main-footer {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
