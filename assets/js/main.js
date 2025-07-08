@@ -27,7 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const searchBooks = async () => {
-        const category = categoryInput.value.trim();
+        // Ho convertito l'input della categoria in minuscolo perchè ho notato che la Open Library API per /subjects è sensibile alle maiuscole/minuscole
+        const category = categoryInput.value.trim().toLowerCase();
+
         if (!category) {
             bookList.innerHTML = '<p class="no-books-found">Please enter a book category.</p>';
             return;
@@ -40,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const url = `https://openlibrary.org/subjects/${encodeURIComponent(category)}.json`;
             const response = await fetch(url); 
             if (!response.ok) {
+
+                if (response.status === 404) {
+                    throw new Error(`Category not found. Try another one! (HTTP Error: ${response.status})`);
+                }
                 throw new Error(`HTTP Error: ${response.status}`);
             }
             const data = await response.json(); 
@@ -69,12 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     bookList.appendChild(bookCard);
                 });
             } else {
-
                 bookList.innerHTML = '<p class="no-books-found">No books found for this category. Try another one!</p>';
             }
         } catch (error) {
-
             console.error('Error during book search:', error);
+
             bookList.innerHTML = `<p class="error-message">An error occurred during the search: ${error.message}. Please try again.</p>`;
         } finally {
             toggleLoadingSpinner(false); 
