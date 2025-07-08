@@ -1,4 +1,4 @@
-# 📚 owly-Book-Search
+# 📚 owly-book-search
 
 Un'applicazione web semplice e intuitiva per cercare libri, realizzata con **JavaScript** e ottimizzata per una buona esperienza utente su ogni dispositivo. Concepito come progetto per il corso di JavaScript Advanced del Master in "Full Stack Development e AI" di start2impact.
 
