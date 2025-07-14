@@ -1,7 +1,6 @@
 import '../css/style.less';
 import _get from 'lodash.get';
 import logoOwlyImage from '../img/logo-owly.png';
-import noCoverImage from '../img/no-cover.jpg';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -73,18 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     authorsElement.textContent = `Author(s): ${authors}`;
                     authorsElement.className = 'book-authors';
 
-                    const coverElement = document.createElement('img');
-                    const coverId = _get(book, 'cover_id');
-                    if (coverId) {
-                        coverElement.src = `https://covers.openlibrary.org/b/id/${coverId}-M.jpg`;
-                        coverElement.alt = `${titleElement.textContent} Cover`;
-                    } else {
-                        coverElement.src = noCoverImage;
-                        coverElement.alt = 'No Cover Available';
-                    }
-                    coverElement.className = 'book-cover';
-
-                    bookCard.appendChild(coverElement);
                     bookCard.appendChild(titleElement);
                     bookCard.appendChild(authorsElement);
 

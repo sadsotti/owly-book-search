@@ -1,4 +1,3 @@
-/* ==================== Variabili e Mixin Globali ==================== */
 @color-primary: #26293c;
 @color-primary-dark: #1a1c29;
 @color-text-dark: #2C3E50;
@@ -15,9 +14,8 @@
 @color-shadow-strong: rgba(0, 0, 0, 0.15);
 @color-shadow-modal: rgba(0, 0, 0, 0.4);
 @color-close-button: #95A5A6;
-@color-success: #28a745; // Aggiunto per coerenza
-@color-error: #dc3545; // Aggiunto per coerenza
-
+@color-success: #28a745;
+@color-error: #dc3545;
 
 @font-family-base: 'Inter', sans-serif;
 @font-size-base: 1rem;
@@ -39,7 +37,7 @@
 
 .button-base() {
     .flex-center();
-    color: @color-background-card; // Testo bianco per bottoni primari/scuri
+    color: @color-background-card;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     border: none;
@@ -58,7 +56,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
 
-/* ==================== Reset e Stili Base ==================== */
 *,
 *::before,
 *::after {
@@ -68,7 +65,7 @@
 }
 
 html {
-    font-size: 16px; // Base per REM
+    font-size: 16px;
     scroll-behavior: smooth;
 }
 
@@ -87,14 +84,13 @@ body {
 }
 
 a {
-    color: @color-primary; // Colore link
+    color: @color-primary;
     text-decoration: none;
     &:hover {
         text-decoration: underline;
     }
 }
 
-/* ==================== Layout Generale ==================== */
 .body-layout {
     display: flex;
     flex-direction: column;
@@ -105,10 +101,9 @@ a {
     flex-grow: 1;
     max-width: 1200px;
     margin: 0 auto;
-    padding: @spacing-2xl @spacing-md; // Default per desktop
+    padding: @spacing-2xl @spacing-md;
 }
 
-/* ==================== Header ==================== */
 .main-header {
     background-color: @color-background-card;
     box-shadow: 0 2px 10px @color-shadow-base;
@@ -144,20 +139,19 @@ a {
         font-size: 1.1rem;
         color: @color-text-light;
         letter-spacing: 0.02em;
-        display: none; // Nascosto di default
-        @media (min-width: 768px) { // Mostrato solo su tablet e desktop
+        display: none;
+        @media (min-width: 768px) {
             display: block;
         }
     }
 }
 
-/* ==================== Sezioni Introduttive ==================== */
 .section-intro {
     text-align: center;
-    margin-bottom: @spacing-3xl; // Default per desktop
+    margin-bottom: @spacing-3xl;
 
     .section-title {
-        font-size: 3.8rem; // Default per desktop
+        font-size: 3.8rem;
         font-weight: 700;
         color: @color-text-dark;
         margin-bottom: @spacing-sm;
@@ -165,32 +159,31 @@ a {
     }
 
     .section-subtitle {
-        font-size: 1.3rem; // Default per desktop
+        font-size: 1.3rem;
         color: @color-text-light;
         max-width: 700px;
         margin: 0 auto;
     }
 }
 
-/* ==================== Sezione di Ricerca ==================== */
 .search-section {
     display: flex;
-    flex-direction: column; // Impostato sempre a colonna
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: @spacing-lg; // Default per desktop, gap tra input e button-group
-    margin-bottom: @spacing-3xl; // Default per desktop
+    gap: @spacing-lg;
+    margin-bottom: @spacing-3xl;
 }
 
 .google-input {
     border: 1px solid @color-border-input;
     border-radius: 30px;
-    padding: 16px 25px; // Default per desktop
-    font-size: 18px; // Default per desktop
+    padding: 16px 25px;
+    font-size: 18px;
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; // Default per mobile
-    max-width: 700px; // Aumentato per renderla più lunga
+    width: 100%;
+    max-width: 700px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 
     &:focus {
@@ -203,33 +196,31 @@ a {
     flex-grow: 1;
 }
 
-.button-group-container { /* REVISIONE */
+.button-group-container {
     display: flex;
-    gap: @spacing-md; // Spacing tra i bottoni
-    width: 100%; // Occupa tutta la larghezza disponibile
-    max-width: 700px; // Allinea con la barra di ricerca
-    justify-content: center; // Centra i bottoni
-    flex-wrap: wrap; // Permette ai bottoni di andare a capo su schermi piccoli (si attiva quando lo spazio è insufficiente)
+    gap: @spacing-md;
+    width: 100%;
+    max-width: 700px;
+    justify-content: center;
+    flex-wrap: wrap;
 
     .btn-primary, .btn-secondary {
-        flex-basis: 48%; // Ocupa quasi metà dello spazio, meno il gap
+        flex-basis: 48%;
     }
 
-    // Media query per schermi tablet portrait e mobile landscape
     @media (max-width: 768px) {
-        gap: @spacing-sm; // Riduci il gap tra i bottoni su schermi più piccoli
+        gap: @spacing-sm;
         .btn-primary, .btn-secondary {
-            flex-basis: 48%; // Mantieni affiancati finché possibile
+            flex-basis: 48%;
         }
     }
 
-    // Media query per schermi mobile portrait (molto piccoli)
     @media (max-width: 480px) {
-        flex-direction: column; // Impila i bottoni su schermi molto piccoli
+        flex-direction: column;
         gap: @spacing-sm;
         .btn-primary, .btn-secondary {
-            width: 100%; // Occupano tutta la larghezza disponibile quando impilati
-            flex-basis: auto; // Reset della base per l'impilamento
+            width: 100%;
+            flex-basis: auto;
         }
     }
 }
@@ -237,10 +228,9 @@ a {
 .btn-primary {
     .button-base();
     background-color: @color-primary;
-    padding: 16px 32px; // Default per desktop
+    padding: 16px 32px;
     border-radius: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-
 
     &:hover {
         background-color: @color-primary-dark;
@@ -256,13 +246,12 @@ a {
 
 .btn-secondary {
     .button-base();
-    color: @color-text-dark; // Testo scuro
-    background-color: @color-background-card; // Sfondo bianco
+    color: @color-text-dark;
+    background-color: @color-background-card;
     border: 1px solid @color-border-input;
-    padding: 16px 32px; // Default per desktop
+    padding: 16px 32px;
     border-radius: 30px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-
 
     &:hover {
         background-color: lighten(@color-background-card, 3%);
@@ -277,7 +266,6 @@ a {
     }
 }
 
-/* ==================== Spinner di Caricamento ==================== */
 #loadingSpinner {
     border: 4px solid @color-border-light;
     border-top: 4px solid @color-primary;
@@ -294,11 +282,10 @@ a {
     100% { transform: rotate(360deg); }
 }
 
-/* ==================== Griglia dei Libri e Card ==================== */
 #bookList {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // Base per schermi più grandi
-    gap: @spacing-3xl; // Default per desktop
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: @spacing-3xl;
     align-items: stretch;
 }
 
@@ -306,14 +293,14 @@ a {
     background-color: @color-background-card;
     border-radius: 18px;
     .card-shadow(1);
-    padding: @spacing-xl; // Default per desktop
+    padding: @spacing-xl;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     border: 1px solid @color-border-light;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 220px; // Aumentato leggermente per desktop
+    min-height: 220px;
     text-decoration: none;
     color: inherit;
 
@@ -321,17 +308,6 @@ a {
         transform: translateY(-8px);
         .card-shadow(2);
         border-color: @color-primary;
-    }
-
-    .book-cover {
-        width: 100%;
-        max-width: 120px;
-        height: auto;
-        border-radius: 4px;
-        margin-bottom: @spacing-sm;
-        object-fit: contain;
-        aspect-ratio: 2/3;
-        flex-shrink: 0;
     }
 
     h3.book-title {
@@ -375,7 +351,6 @@ a {
     width: 100%;
 }
 
-/* ==================== Modale Descrizione ==================== */
 #descriptionModal {
     display: none;
     position: fixed;
@@ -391,7 +366,7 @@ a {
 
 .modal-content {
     background-color: @color-background-card;
-    padding: @spacing-3xl; // Default per desktop
+    padding: @spacing-3xl;
     border-radius: 20px;
     width: 90%;
     max-width: 900px;
@@ -408,7 +383,7 @@ a {
 }
 
 .modal-title {
-    font-size: 2.2rem; // Default per desktop
+    font-size: 2.2rem;
     font-weight: 700;
     color: @color-text-dark;
     margin-bottom: @spacing-md;
@@ -416,17 +391,17 @@ a {
 }
 
 .modal-authors {
-    font-size: 1.1rem; // Default per desktop
+    font-size: 1.1rem;
     color: @color-text-light;
     margin-bottom: @spacing-lg;
     font-style: italic;
 }
 
 .modal-description {
-    font-size: @font-size-base; // Default per desktop
+    font-size: @font-size-base;
     color: @color-text-medium;
     line-height: 1.7;
-    max-height: 300px; // Altezza massima con scroll
+    max-height: 300px;
     overflow-y: auto;
     padding-right: @spacing-sm;
 }
@@ -435,7 +410,7 @@ a {
     color: @color-close-button;
     position: absolute;
     top: @spacing-lg;
-    right: @spacing-2xl; // Default per desktop
+    right: @spacing-2xl;
     font-size: 36px;
     font-weight: normal;
     cursor: pointer;
@@ -448,7 +423,6 @@ a {
     }
 }
 
-/* ==================== Message Box Overlay ==================== */
 .message-box-overlay {
     display: flex;
     position: fixed;
@@ -463,7 +437,7 @@ a {
 
 .message-box-content {
     background-color: @color-background-card;
-    padding: @spacing-xl; // Default per desktop
+    padding: @spacing-xl;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 8px 25px @color-shadow-medium;
@@ -472,7 +446,7 @@ a {
 }
 
 .message-box-text {
-    font-size: 1.1em; // Default per desktop
+    font-size: 1.1em;
     color: @color-text-dark;
     margin-bottom: @spacing-lg;
 }
@@ -493,7 +467,6 @@ a {
     }
 }
 
-/* ==================== Footer ==================== */
 .main-footer {
     background-color: @color-background-footer;
     color: @color-text-light;
@@ -507,9 +480,6 @@ a {
     }
 }
 
-/* ==================== Media Queries per Responsività ==================== */
-
-// Tablet Landscape e Desktop Small (da 769px a 1024px)
 @media (max-width: 1024px) {
     .main-content-container {
         padding: @spacing-xl @spacing-md;
@@ -523,10 +493,10 @@ a {
     .google-input {
         padding: 14px 20px;
         font-size: 17px;
-        max-width: 600px; // Adattato per tablet landscape
+        max-width: 600px;
     }
     .button-group-container {
-        max-width: 600px; // Adattato
+        max-width: 600px;
     }
     .btn-primary, .btn-secondary {
         padding: 14px 28px;
@@ -534,11 +504,11 @@ a {
     }
     #bookList {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: @spacing-xl; // Ridotto il gap
+        gap: @spacing-xl;
     }
     .card {
         padding: @spacing-lg;
-        min-height: 200px; // Adattato
+        min-height: 200px;
         h3.book-title {
             font-size: 1.4rem;
         }
@@ -570,7 +540,6 @@ a {
     }
 }
 
-// Tablet Portrait e Mobile Landscape (da 481px a 768px)
 @media (max-width: 768px) {
     .main-header {
         padding: @spacing-sm @spacing-md;
@@ -597,17 +566,17 @@ a {
         font-size: 0.95rem;
     }
     .search-section {
-        gap: @spacing-md; // Ridotto il gap
+        gap: @spacing-md;
         margin-bottom: @spacing-2xl;
     }
     .google-input {
         padding: 12px 16px;
         font-size: 1rem;
-        max-width: 90%; // Limita la larghezza su mobile
+        max-width: 90%;
     }
     .button-group-container {
-        max-width: 90%; // Allinea con la barra di ricerca
-        gap: @spacing-sm; // Ridotto il gap tra i bottoni
+        max-width: 90%;
+        gap: @spacing-sm;
     }
     .btn-primary, .btn-secondary {
         padding: 12px 20px;
@@ -619,12 +588,12 @@ a {
         margin-bottom: @spacing-lg;
     }
     #bookList {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); // Adattato per schermi medi
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: @spacing-xl;
     }
     .card {
         padding: @spacing-md;
-        min-height: 180px; // Adattato
+        min-height: 180px;
         h3.book-title {
             font-size: 1.2rem;
             margin-bottom: @spacing-xs;
@@ -662,7 +631,6 @@ a {
     }
 }
 
-// Mobile Portrait (fino a 480px)
 @media (max-width: 480px) {
     .main-header {
         padding: @spacing-xs @spacing-sm;
@@ -675,7 +643,7 @@ a {
         }
     }
     .main-content-container {
-        padding: @spacing-lg @spacing-xs; // Padding più stretto
+        padding: @spacing-lg @spacing-xs;
     }
     .section-intro {
         margin-bottom: @spacing-xl;
@@ -687,22 +655,22 @@ a {
         font-size: 0.85rem;
     }
     .search-section {
-        gap: @spacing-sm; // Ridotto il gap
+        gap: @spacing-sm;
         margin-bottom: @spacing-xl;
     }
     .google-input {
         padding: 10px 14px;
         font-size: 0.9rem;
-        width: 95%; // Quasi piena larghezza
-        max-width: none; // Rimuove max-width per mobile
+        width: 95%;
+        max-width: none;
     }
     .button-group-container {
-        width: 95%; // Allinea con la barra di ricerca
-        flex-direction: column; // Impila i bottoni
-        gap: @spacing-sm; // Ridotto il gap tra i bottoni impilati
+        width: 95%;
+        flex-direction: column;
+        gap: @spacing-sm;
     }
     .btn-primary, .btn-secondary {
-        width: 100%; // Occupano tutta la larghezza disponibile
+        width: 100%;
     }
     #bookList {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -710,7 +678,7 @@ a {
     }
     .card {
         padding: @spacing-sm;
-        min-height: 150px; // Adattato
+        min-height: 150px;
         h3.book-title {
             font-size: 1rem;
         }
