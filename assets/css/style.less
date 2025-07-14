@@ -151,7 +151,7 @@ a {
     margin-bottom: @spacing-3xl;
 
     .section-title {
-        font-size: 3.8rem;
+        font-size: 2.8rem;
         font-weight: 700;
         color: @color-text-dark;
         margin-bottom: @spacing-sm;
@@ -284,9 +284,24 @@ a {
 
 #bookList {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
     gap: @spacing-3xl;
     align-items: stretch;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+        gap: @spacing-xl;
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(3, minmax(220px, 1fr));
+        gap: @spacing-xl;
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        gap: @spacing-sm;
+    }
 }
 
 .card {
@@ -343,12 +358,12 @@ a {
 
 .no-books-found,
 .error-message {
+    font-size: 1.2rem;
+    color: @color-text-dark;
     text-align: center;
-    color: @color-text-light;
-    font-size: 1.1em;
-    margin-top: @spacing-xl;
-    padding: @spacing-md;
+    padding: @spacing-lg;
     width: 100%;
+    grid-column: 1 / -1;
 }
 
 #descriptionModal {
@@ -446,7 +461,7 @@ a {
 }
 
 .message-box-text {
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: @color-text-dark;
     margin-bottom: @spacing-lg;
 }
@@ -457,6 +472,11 @@ a {
     color: @color-background-card;
     padding: 12px 24px;
     border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
     &:hover {
         background-color: @color-primary-dark;
         transform: translateY(-2px);
@@ -502,10 +522,6 @@ a {
         padding: 14px 28px;
         font-size: 17px;
     }
-    #bookList {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: @spacing-xl;
-    }
     .card {
         padding: @spacing-lg;
         min-height: 200px;
@@ -536,7 +552,7 @@ a {
         padding: @spacing-xl;
     }
     .message-box-text {
-        font-size: 1em;
+        font-size: 1.2em;
     }
 }
 
@@ -587,10 +603,6 @@ a {
         height: 35px;
         margin-bottom: @spacing-lg;
     }
-    #bookList {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: @spacing-xl;
-    }
     .card {
         padding: @spacing-md;
         min-height: 180px;
@@ -627,7 +639,7 @@ a {
         padding: @spacing-lg;
     }
     .message-box-text {
-        font-size: 1em;
+        font-size: 1.2em;
     }
 }
 
@@ -672,10 +684,6 @@ a {
     .btn-primary, .btn-secondary {
         width: 100%;
     }
-    #bookList {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: @spacing-sm;
-    }
     .card {
         padding: @spacing-sm;
         min-height: 150px;
@@ -694,6 +702,7 @@ a {
     }
     .modal-authors {
         font-size: 0.8rem;
+        margin-bottom: @spacing-md;
     }
     .modal-description {
         font-size: 0.8rem;
@@ -708,7 +717,7 @@ a {
         padding: @spacing-sm;
     }
     .message-box-text {
-        font-size: 0.9em;
+        font-size: 1.2em;
     }
     .main-footer {
         padding: @spacing-sm @spacing-xs;

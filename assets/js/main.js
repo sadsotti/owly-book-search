@@ -33,7 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const searchBooks = async () => {
-        const category = categoryInput.value.trim().toLowerCase();
+        // Modifica qui:
+        // 1. Converte in minuscolo
+        // 2. Sostituisce gli spazi con underscore per le categorie multi-parola richieste dall'API di Open Library.
+        const category = categoryInput.value.trim().toLowerCase().replace(/\s+/g, '_');
 
         bookList.innerHTML = '';
 
@@ -46,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleLoadingSpinner(true);
 
         try {
+            // encodeURIComponent è ancora utilizzato per altri caratteri speciali, ma gli spazi sono già stati gestiti.
             const url = `https://openlibrary.org/subjects/${encodeURIComponent(category)}.json?limit=20`;
             const response = await fetch(url);
 
