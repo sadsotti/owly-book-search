@@ -25,19 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     bookList.innerHTML = '<p class="no-books-found">Enter a category to find your next book!</p>';
 
     const toggleLoadingSpinner = (show) => {
-        if (show) {
-            loadingSpinner.style.display = 'block';
-        } else {
-            loadingSpinner.style.display = 'none';
-        }
+        loadingSpinner.style.display = show ? 'block' : 'none';
     };
 
     const searchBooks = async () => {
-        // Modifica qui:
-        // 1. Converte in minuscolo
-        // 2. Sostituisce gli spazi con underscore per le categorie multi-parola richieste dall'API di Open Library.
         const category = categoryInput.value.trim().toLowerCase().replace(/\s+/g, '_');
-
         bookList.innerHTML = '';
 
         if (!category) {
@@ -49,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleLoadingSpinner(true);
 
         try {
-            // encodeURIComponent è ancora utilizzato per altri caratteri speciali, ma gli spazi sono già stati gestiti.
             const url = `https://openlibrary.org/subjects/${encodeURIComponent(category)}.json?limit=20`;
             const response = await fetch(url);
 
@@ -71,14 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     const authorsElement = document.createElement('p');
                     const authors = _get(book, 'authors', [])
-                                         .map(author => _get(author, 'name', 'Unknown Author'))
-                                         .join(', ') || 'Unknown Author';
+                        .map(author => _get(author, 'name', 'Unknown Author'))
+                        .join(', ') || 'Unknown Author';
                     authorsElement.textContent = `Author(s): ${authors}`;
                     authorsElement.className = 'book-authors';
 
                     bookCard.appendChild(titleElement);
                     bookCard.appendChild(authorsElement);
-
                     bookCard.addEventListener('click', () => fetchBookDescription(book.key));
 
                     bookList.appendChild(bookCard);
@@ -121,9 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            let description = _get(data, 'description', 'Descrizione non disponibile.');
+            let description = _get(data, 'description', 'Description not available.');
             if (typeof description === 'object' && description !== null) {
-                description = _get(description, 'value', 'Descrizione non disponibile.');
+                description = _get(description, 'value', 'Description not available.');
             }
 
             modalTitle.textContent = title;
