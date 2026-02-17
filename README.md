@@ -108,3 +108,5 @@ The project follows a standard and organized structure for better maintainabilit
 * [Open Library API](https://openlibrary.org/developers/api)
 * [start2impact](https://www.start2impact.it/)
 * [My LinkedIn](https://linkedin.com/in/lorenzo-sottile)
+
+---
